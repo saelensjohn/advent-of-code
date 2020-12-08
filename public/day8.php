@@ -48,6 +48,7 @@ foreach ($input as $key => $line) {
 
     if ($result['success']) {
         echo sprintf('Result part 2: %d', $result['acc']);
+        break;
     }
 }
 

@@ -37,15 +37,10 @@ foreach ($input as $key => $line) {
     $op = $parsedLine[0];
 
     if ($op === 'app') continue;
-    if ($op === 'jmp') {
-        $newInput[$key] = sprintf('nop %s', $parsedLine[1]);
-    }
-    if ($op === 'nop') {
-        $newInput[$key] = sprintf('jmp %s', $parsedLine[1]);
-    }
+    if ($op === 'jmp') $newInput[$key] = sprintf('nop %s', $parsedLine[1]);
+    if ($op === 'nop') $newInput[$key] = sprintf('jmp %s', $parsedLine[1]);
 
     $result = processOp($newInput);
-
     if ($result['success']) {
         echo sprintf('Result part 2: %d', $result['acc']);
         break;

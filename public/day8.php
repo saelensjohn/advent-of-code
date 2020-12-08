@@ -2,7 +2,7 @@
 
 $input = explode(PHP_EOL, file_get_contents('files/day8/input.txt'));
 
-function processOp($input, $key = 0, &$acc = 0, &$alreadyProcessed = []): array
+function processOp($input, $key = 0, $acc = 0, $alreadyProcessed = []): array
 {
     if (in_array($key, $alreadyProcessed)) return ['success' => 0, 'acc' => $acc];
     if ($key === count($input)) return ['success' => 1, 'acc' => $acc];
@@ -51,4 +51,3 @@ foreach ($input as $key => $line) {
         break;
     }
 }
-

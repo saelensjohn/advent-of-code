@@ -15,14 +15,14 @@ function processOp($input, $key = 0, $acc = 0, $alreadyProcessed = []): array
     switch ($op) {
         case 'acc':
             $acc += $value;
-            $key += 1;
+            $key++;
             break;
         case 'jmp':
             $key += $value;
             break;
         case 'nop':
         default:
-            $key += 1;
+            $key++;
     }
 
     return processOp($input, $key, $acc, $alreadyProcessed);
